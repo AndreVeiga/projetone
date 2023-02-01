@@ -4,6 +4,7 @@ import './App.css';
 import { Home } from './Pages/Home'
 import { Private } from './Pages/Private'
 import { Menu } from './Components/Menu';
+import { RequireAuth } from './Contexts/Auth/RequireAuth';
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={ <Home />}/>
-        <Route path="/private" element={ <Private />}/>
+        <Route path="/private" element={ <RequireAuth><Private /></RequireAuth> }/>
       </Routes>
     </div>
   );

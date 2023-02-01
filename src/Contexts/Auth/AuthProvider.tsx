@@ -1,16 +1,34 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { AuthContext } from "./AuthContext"
 import { User } from "../../Types/User"
 import { useApi } from "../../Hooks/useApi"
+import { AuthConfig } from "../../Enums/Config"
 
 export const AuthProvider = ({ children }: { children: JSX.Element }) => {
     const [ user, setUser ] = useState<User | null>(null)
     const api = useApi()
 
+    useEffect(() => { 
+        validateToken()
+    }, [])
+
+    const validateToken = async () => {
+        const token = await localStorage.getItem(AuthConfig.TOKEN)
+        if (token) {
+            const data = await api.validateToken(token)
+            const { user } = data
+            if (user) {
+                setUser(user)
+            }
+        }
+    }
+
     const signin = async (email: string, password: string): Promise<boolean> => {
         const data = await api.signin(email, password)
-        if (data?.user) {
-            setUser(data.user)
+        const { user } = data
+        if (user) {
+            await setUser(user)
+            await setToken(user.token)
             return true
         }
 
@@ -18,7 +36,12 @@ export const AuthProvider = ({ children }: { children: JSX.Element }) => {
     }
 
     const signout = async () => {
-        setUser(null)
+        await setUser(null)
+        await setToken('')
+    }
+
+    const setToken = async (token: string) => {
+        await localStorage.setItem(AuthConfig.TOKEN, token)
     }
 
     return (
