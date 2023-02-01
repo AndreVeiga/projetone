@@ -7,7 +7,7 @@ const Api = axios.create({
 export const useApi = () => ({
     signin: async (email: string, password: string) => {
         /*
-        const response = await axios.post('/signin', { email, password })
+        const response = await Api.post('/signin', { email, password })
         return response?.data
         */
 
