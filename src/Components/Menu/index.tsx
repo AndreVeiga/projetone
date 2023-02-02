@@ -14,7 +14,7 @@ export const Menu = () => {
       <nav>
       <Link to="/">Home</Link>
       <Link to="/private">Private</Link>
-      {auth.user && <button onClick={handleLogout}>Sair</button>} 
+      {<button onClick={handleLogout}>Sair</button>} 
     </nav>
   )
 }

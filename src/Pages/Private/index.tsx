@@ -1,7 +1,10 @@
+import { Menu } from "../../Components/Menu"
+
 export const Private = () => {
     return (
         <div>
-            Private
+            <Menu />
+            <h1>Private</h1>
         </div>
     )
 }

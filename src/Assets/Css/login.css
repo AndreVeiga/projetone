@@ -1,0 +1,26 @@
+.container-login {
+    background-color: #042326;
+    height: 100vh;
+    
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+.container-login > div {
+    width: 100%;
+    margin: 5% 0;
+    justify-self: center;
+}
+
+.container-login > div > input, button {
+    height: 5vh;
+    width: 100%;
+    padding: 1px;
+    border: 0;
+    border-radius: 2px;
+}
+
+.button-login {
+    color: #FFF;
+    background-color: #107361;
+}

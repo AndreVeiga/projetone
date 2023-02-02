@@ -9,19 +9,21 @@ export const AuthProvider = ({ children }: { children: JSX.Element }) => {
     const api = useApi()
 
     useEffect(() => { 
-        validateToken()
-    }, [api])
-
-    const validateToken = async () => {
-        const token = await localStorage.getItem(AuthConfig.TOKEN)
-        if (token) {
-            const data = await api.validateToken(token)
-            const { user } = data
-            if (user) {
-                setUser(user)
+        const validateToken = async () => {
+            const token = await localStorage.getItem(AuthConfig.TOKEN)
+            if (token) {
+                const data = await api.validateToken(token)
+                const { user } = data
+                if (user) {
+                    setUser(user)
+                }
             }
         }
-    }
+        
+        validateToken()
+    }, [])
+
+    
 
     const signin = async (email: string, password: string): Promise<boolean> => {
         const data = await api.signin(email, password)

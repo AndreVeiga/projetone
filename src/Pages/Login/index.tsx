@@ -1,6 +1,7 @@
 import { useState, useContext } from "react"
-import { AuthContext } from "../../Contexts/Auth/AuthContext"
 import { useNavigate } from "react-router-dom"
+
+import { AuthContext } from "../../Contexts/Auth/AuthContext"
 
 export const Login = () => {
     const navegate = useNavigate()
@@ -22,20 +23,28 @@ export const Login = () => {
     }
 
     return (
-        <div>
-            <input
-                placeholder="Email"
-                type='text'
-                onChange={e => setEmail(e.target.value)}
-            />
-
-            <input
-                placeholder="Senha" 
-                type="password"
-                onChange={e => setPassword(e.target.value)}
-            />
-
-            <button onClick={handleLogin}>Login</button>
+        <div className="container-login">
+            <div>
+                <input
+                    placeholder="email"
+                    type="email"
+                    required
+                    onChange={e => setEmail(e.target.value)}/>
+            </div>
+            <div>
+                <input
+                    onChange={e => setPassword(e.target.value)}
+                    placeholder="senha"
+                    required
+                    type='password'/>
+            </div>       
+            <div>
+                <button
+                    className="button-login"
+                    onClick={handleLogin}>
+                    Login
+                </button>
+            </div>
         </div>
     )
 }
