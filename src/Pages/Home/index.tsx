@@ -1,9 +1,9 @@
-import { Menu } from "../../Components/Menu"
+import { Header } from "../../Components/Header"
 
 export const Home = () => {
     return (
         <div>
-            <Menu/>
+            <Header />
             <h1>Home</h1>
         </div>
     )

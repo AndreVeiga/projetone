@@ -11,10 +11,10 @@ export const Menu = () => {
   }
 
   return (
-      <nav>
+    <nav className="container-menu">
       <Link to="/">Home</Link>
       <Link to="/private">Private</Link>
-      {<button onClick={handleLogout}>Sair</button>} 
+      <Link to="/" onClick={handleLogout}>Sair</Link>
     </nav>
   )
 }

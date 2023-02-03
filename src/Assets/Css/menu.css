@@ -1,0 +1,15 @@
+.container-menu {
+    display: inline-block;
+    width: 100%;
+    text-align: end;
+}
+
+.container-menu > a {
+    padding: 1rem;
+    color: #FFF;
+    text-decoration: none;
+}
+
+.container-menu > a:hover {
+   text-decoration: underline;
+}
