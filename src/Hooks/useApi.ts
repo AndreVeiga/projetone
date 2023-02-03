@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const Api = axios.create({
+export const Api = axios.create({
     baseURL: process.env.BASE_AUTH_API
 })
 

@@ -13,7 +13,8 @@ export const Menu = () => {
   return (
     <nav className="container-menu">
       <Link to="/">Home</Link>
-      <Link to="/private">Private</Link>
+      <Link to="/jogadores">Jogadores</Link>
+      <Link to="/times">Times</Link>
       <Link to="/" onClick={handleLogout}>Sair</Link>
     </nav>
   )

@@ -1,10 +1,10 @@
 import { Header } from "../../Components/Header"
 
-export const Private = () => {
+export const Jogadores = () => {
     return (
         <div>
             <Header />
-            <h1>Private</h1>
+            <h1>Jogadores</h1>
         </div>
     )
 }
